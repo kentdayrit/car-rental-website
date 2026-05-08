@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Ride | KlebX Car Rental</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="../index.html" class="text-2xl font-black text-slate-900 tracking-tighter">
+                Kleb<span class="text-red-600">X</span>
+            </a>
+            <a href="../index.html" class="text-sm font-bold text-slate-500 hover:text-red-600 transition">
+                <i class="fas fa-arrow-left mr-2"></i> Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
+        <div class="grid lg:grid-cols-3 gap-8">
+            
+            <!-- Booking Form -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="bg-slate-900 p-6">
+                        <h1 class="text-xl font-bold text-white">Reservation Details</h1>
+                        <p class="text-slate-400 text-sm">Complete the form to secure your vehicle.</p>
+                    </div>
+                    
+                    <form id="bookingForm" class="p-8 space-y-6">
+                        <!-- Personal Info -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Full Name</label>
+                                <input type="text" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-red-600 outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Email Address</label>
+                                <input type="email" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-red-600 outline-none transition">
+                            </div>
+                        </div>
+
+                        <!-- Car Selection -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Select Vehicle Type</label>
+                            <select class="w-full border border-slate-300 rounded-lg p-3 bg-white focus:ring-2 focus:ring-red-600 outline-none transition">
+                                <option>Modern Sedan ($45/day)</option>
+                                <option>Multi-Purpose Van ($75/day)</option>
+                                <option>Comfort SUV ($60/day)</option>
+                            </select>
+                        </div>
+
+                        <!-- Dates -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Pickup Date</label>
+                                <input type="date" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-red-600 outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase mb-2">Return Date</label>
+                                <input type="date" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-red-600 outline-none transition">
+                            </div>
+                        </div>
+
+                        <!-- Terms -->
+                        <div class="flex items-start space-x-3 pt-4">
+                            <input type="checkbox" required class="mt-1 h-4 w-4 border-slate-300 rounded text-red-600 focus:ring-red-600">
+                            <label class="text-sm text-slate-500">I agree to the KlebX Terms of Service and Privacy Policy.</label>
+                        </div>
+
+                        <button type="submit" class="w-full bg-red-600 text-white py-4 rounded-lg font-bold text-lg hover:bg-red-700 shadow-lg shadow-red-200 transition-all active:scale-[0.98]">
+                            Confirm Reservation
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sidebar Info -->
+            <div class="lg:col-span-1 space-y-6">
+                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-4 flex items-center">
+                        <i class="fas fa-info-circle text-red-600 mr-2"></i> Why KlebX?
+                    </h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-3"></i> No hidden fees or taxes</li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-3"></i> 24/7 Roadside Assistance</li>
+                        <li class="flex items-start"><i class="fas fa-check text-green-500 mt-1 mr-3"></i> Sanitized & Insured vehicles</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <p class="text-red-800 text-sm font-medium italic">"Great service! Booked a sedan for my business trip and it was waiting for me at the airport."</p>
+                    <p class="text-red-600 text-xs font-bold mt-2">— Mark T.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Coming Soon Modal -->
+    <div id="comingSoonModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-[100] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-2xl max-w-md w-full mx-4 text-center transform scale-95 transition-transform duration-300">
+            <div class="w-20 h-20 bg-red-100 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-tools text-3xl"></i>
+            </div>
+            <h2 class="text-3xl font-black text-slate-900 mb-4">Coming Soon!</h2>
+            <p class="text-slate-600 mb-8 leading-relaxed">
+                Our online booking system is currently undergoing maintenance to serve you better. 
+                <span class="block mt-2 font-bold text-slate-900">Please contact us via WhatsApp for manual bookings.</span>
+            </p>
+            <button onclick="closeModal()" class="w-full bg-slate-900 text-white py-3 rounded-lg font-bold hover:bg-slate-800 transition">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('bookingForm');
+        const modal = document.getElementById('comingSoonModal');
+        const modalContent = modal.querySelector('div');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Show the modal
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        });
+
+        function closeModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.add('scale-95');
+            modalContent.classList.remove('scale-100');
+        }
+    </script>
+
+</body>
+</html>
